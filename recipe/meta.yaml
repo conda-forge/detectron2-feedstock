@@ -10,7 +10,7 @@ source:
   sha256: fd874aa47414d3de2bc9e4bb405090aa2f3a14e17903ea65afcb6ed106d804ba
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -27,7 +27,7 @@ requirements:
     - cloudpickle
     - future
     - fvcore
-    - matplotlib
+    - matplotlib-base
     - pillow
     - pycocotools
     - pydot
