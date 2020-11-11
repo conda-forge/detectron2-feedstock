@@ -1,5 +1,5 @@
 {% set name = "detectron2" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/facebookresearch/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: ee3e404f534c03883423846876522d6b1e3e64796abd12caf51e8f8648bd5a63
+  sha256: 1a4d122c755e58779f251101c1a51bf54d58f3417548ffb8c262f669b4d1b651
 
 build:
   number: 0
