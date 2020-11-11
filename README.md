@@ -5,11 +5,13 @@ Home: https://github.com/facebookresearch/detectron2
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/detectron2-feedstock/blob/master/LICENSE.txt)
 
 Summary: Detectron2 is FAIR's next-generation platform for object detection and segmentation.
 
+Development: https://github.com/facebookresearch/detectron2
 
+Documentation: https://github.com/facebookresearch/detectron2
 
 Current build status
 ====================
