@@ -1,5 +1,5 @@
 {% set name = "detectron2" %}
-{% set version = "0.4" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/facebookresearch/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 1294603f48ccb1d31b6c540233c724e392257643f378755fc688de0b57e823b3
+  sha256: 21f70c0988b5b41545274b2536559c8f672dde21c83c5013c784a055630010a1
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . -vv
 
