@@ -18,14 +18,14 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    
+  # - numpy  {{ numpy }}
   host:
     - python
     - pip
     - pytorch >=1.8
   run:
     - python
-    - numpy
+    - numpy >=1.21.4
     - cloudpickle
     - future
     - fvcore
