@@ -18,7 +18,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - numpy  {{ numpy }}
+   
   host:
     - python
     - pip
@@ -26,6 +26,7 @@ requirements:
     - numpy >=1.21.4
   run:
     - python
+    - pytorch >=1.10.0
     - numpy >=1.21.4
     - cloudpickle
     - future
