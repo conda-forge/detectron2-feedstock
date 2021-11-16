@@ -23,6 +23,7 @@ requirements:
     - python
     - pip
     - pytorch >=1.8
+    - numpy >=1.21.4
   run:
     - python
     - numpy >=1.21.4
