@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/facebookresearch/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 3efb4ef98af60ce956961a80fda77ec47d15ccf775fd4c329f6be4a1f42fd704
+  sha256: 9757fed05fa32acc2116ea038185f08409d5e854573e70f41909a358b70d1004
 
 build:
   number: 1
