@@ -22,7 +22,7 @@ requirements:
   host:
     - python
     - pip
-    - pytorch >=1.8
+    - pytorch >=1.10.0
     - numpy >=1.21.4
   run:
     - python
