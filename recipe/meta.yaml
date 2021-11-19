@@ -30,7 +30,7 @@ requirements:
     - fvcore
     - matplotlib-base
     - pillow
-    - pycocotools
+    - pycocotools >=2.0.2
     - pydot
     - tensorboard
     - termcolor >=1.1
