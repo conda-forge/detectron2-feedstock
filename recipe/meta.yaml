@@ -19,15 +19,15 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python >=3.8
+    - python
     - pip
     - pytorch >=1.8
   run:
-    - python >=3.8
+    - python 
     - pytorch >=1.8
     - cloudpickle
     - future
-    - fvcore
+    - fvcore >=0.1.5,<0.1.6
     - matplotlib-base
     - pillow
     - pycocotools >=2.0.2
