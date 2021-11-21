@@ -35,7 +35,7 @@ requirements:
     - tensorboard
     - termcolor >=1.1
     - tqdm >4.29.0
-    - yacs >=0.1.6
+    - yacs >=0.1.8
 
 test:
   imports:
