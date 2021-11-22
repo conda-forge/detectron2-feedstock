@@ -30,6 +30,7 @@ requirements:
     - fvcore 
     - matplotlib-base
     - libgcc
+    - ca-certificates
     - pillow
     - pycocotools >=2.0.2
     - pydot
