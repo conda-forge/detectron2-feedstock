@@ -27,8 +27,9 @@ requirements:
     - pytorch >=1.8
     - cloudpickle
     - future
-    - fvcore >=0.1.5,<0.1.6
+    - fvcore 
     - matplotlib-base
+    - libgcc-ng
     - pillow
     - pycocotools >=2.0.2
     - pydot
