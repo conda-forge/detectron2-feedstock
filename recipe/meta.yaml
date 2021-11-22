@@ -29,7 +29,7 @@ requirements:
     - future
     - fvcore 
     - matplotlib-base
-    - libgcc-ng
+    - libgcc
     - pillow
     - pycocotools >=2.0.2
     - pydot
