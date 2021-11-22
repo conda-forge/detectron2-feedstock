@@ -21,10 +21,10 @@ requirements:
   host:
     - python
     - pip
-    - pytorch 
+    - pytorch >=1.8
   run:
     - python 
-    - pytorch 
+    - pytorch >=1.8
     - cloudpickle
     - future
     - fvcore 
