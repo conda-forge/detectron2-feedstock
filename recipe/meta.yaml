@@ -22,7 +22,7 @@ requirements:
     - python
     - pip
     - pytorch >=1.8
-run:
+  run:
     - black ==21.4b2
     - cloudpickle
     - dataclasses  # [py<37]
