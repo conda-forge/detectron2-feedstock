@@ -1,5 +1,5 @@
 {% set name = "detectron2" %}
-{% set version = "0.5" %}
+{% set version = "0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/facebookresearch/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: eb5a63dc89face5f0ba8b9cd66283817f79afa0445937614af8225712274787f
+  sha256: 9757fed05fa32acc2116ea038185f08409d5e854573e70f41909a358b70d1004
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -21,16 +21,22 @@ requirements:
   host:
     - python
     - pip
-    - pytorch >=1.4
-  run:
-    - python
+    - pytorch >=1.8
+run:
+    - black ==21.4b2
     - cloudpickle
+    - dataclasses  # [py<37]
     - future
-    - fvcore
+    - fvcore >=0.1.5,<0.1.6
+    - hydra-core >=1.1
+    - iopath >=0.1.7,<0.1.10
     - matplotlib-base
-    - pillow
-    - pycocotools
+    - omegaconf >=2.1
+    - pillow >=7.1
+    - pycocotools >=2.0.2
     - pydot
+    - python
+    - tabulate
     - tensorboard
     - termcolor >=1.1
     - tqdm >4.29.0
@@ -39,13 +45,7 @@ requirements:
 test:
   imports:
     - detectron2
-  requires:
-    - black ==19.3b0
-    - flake8
-    - flake8-bugbear
-    - flake8-comprehensions
-    - isort
-    - pytorch
+    - detectron2.checkpoint
 
 about:
   home: https://github.com/facebookresearch/detectron2
@@ -59,6 +59,3 @@ about:
 extra:
   recipe-maintainers:
     - mxr-conda
-    - oblute
-    - rluria14
-    - ndmaxar
