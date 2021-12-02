@@ -21,7 +21,7 @@ requirements:
   host:
     - python
     - pip
-    - pytorch >=1.8
+    - torch >=1.8
   run:
     - black ==21.4b2
     - cloudpickle
