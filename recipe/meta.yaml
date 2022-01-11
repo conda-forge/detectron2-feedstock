@@ -1,5 +1,5 @@
 {% set name = "detectron2" %}
-{% set version = "0.5" %}
+{% set version = "0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,16 @@ package:
 
 source:
   url: https://github.com/facebookresearch/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: eb5a63dc89face5f0ba8b9cd66283817f79afa0445937614af8225712274787f
+  sha256: 9757fed05fa32acc2116ea038185f08409d5e854573e70f41909a358b70d1004
 
 build:
-  number: 2
-  skip: true  # [win or pytorch == "1.9.*" and cuda_compiler_version == "11.0" or pytorch == "1.8.*" and cuda_compiler_version == "11.0" or pytorch == "1.7.*" and cuda_compiler_version != "10.2"]
+  number: 0
+  ? skip__###conda-selector###__win or pytorch == "1.9.*" and cuda_compiler_version == "11.0" or pytorch == "1.8.*" and cuda_compiler_version == "11.0" or pytorch == "1.7.*" and cuda_compiler_version != "10.2"
+  : true
   script: {{ PYTHON }} -m pip install . -vv
-    
+
   string: torch{{ pytorch | replace('.', '') | replace('*', '') }}_cuda{{ cuda_compiler_version | replace('.', '') }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
-  string: torch{{ pytorch | replace('.', '') | replace('*', '') }}_cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}                                                 # [cuda_compiler_version == "None"]
+  string: torch{{ pytorch | replace('.', '') | replace('*', '') }}_cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version == "None"]
 
 requirements:
   build:
