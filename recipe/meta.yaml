@@ -10,19 +10,26 @@ source:
   sha256: eb5a63dc89face5f0ba8b9cd66283817f79afa0445937614af8225712274787f
 
 build:
-  number: 1
-  skip: true  # [win]
+  number: 2
+  skip: true  # [win or pytorch == "1.9.*" and cuda_compiler_version == "11.0" or pytorch == "1.8.*" and cuda_compiler_version == "11.0" or pytorch == "1.7.*" and cuda_compiler_version != "10.2"]
   script: {{ PYTHON }} -m pip install . -vv
+    
+  string: torch{{ pytorch | replace('.', '') | replace('*', '') }}_cuda{{ cuda_compiler_version | replace('.', '') }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
+  string: torch{{ pytorch | replace('.', '') | replace('*', '') }}_cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}                                                 # [cuda_compiler_version == "None"]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ compiler('cuda') }}      # [cuda_compiler_version != "None"]
   host:
     - python
     - pip
-    - pytorch >=1.4
+    - pytorch-gpu {{ pytorch }}      # [cuda_compiler_version != "None"]
+    - pytorch-cpu {{ pytorch }}      # [cuda_compiler_version == "None"]
   run:
+    - {{ pin_compatible('pytorch-gpu', min_pin='x.x.x', max_pin='x.x') }}                  # [cuda_compiler_version != "None"]
+    - {{ pin_compatible('pytorch-cpu', min_pin='x.x.x', max_pin='x.x') }}                  # [cuda_compiler_version == "None"]
     - python
     - cloudpickle
     - future
@@ -45,7 +52,6 @@ test:
     - flake8-bugbear
     - flake8-comprehensions
     - isort
-    - pytorch
 
 about:
   home: https://github.com/facebookresearch/detectron2
