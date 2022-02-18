@@ -1,5 +1,5 @@
 {% set name = "detectron2" %}
-{% set version = "0.5" %}
+{% set version = "0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/facebookresearch/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: eb5a63dc89face5f0ba8b9cd66283817f79afa0445937614af8225712274787f
+  sha256: 9757fed05fa32acc2116ea038185f08409d5e854573e70f41909a358b70d1004
 
 build:
-  number: 2
-  skip: true  # [win or pytorch == "1.9.*" and cuda_compiler_version == "11.0" or pytorch == "1.8.*" and cuda_compiler_version == "11.0" or pytorch == "1.7.*" and cuda_compiler_version != "10.2"]
+  number: 0
+  skip: true  # [win or pytorch == "1.10.*" and (cuda_compiler_version == "10.1") or pytorch == "1.9.*" and (cuda_compiler_version == "11.3" or cuda_compiler_version == "10.1") or pytorch == "1.8.*" and cuda_compiler_version == "11.3"]
   script: {{ PYTHON }} -m pip install . -vv
     
   string: torch{{ pytorch | replace('.', '') | replace('*', '') }}_cuda{{ cuda_compiler_version | replace('.', '') }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
@@ -28,27 +28,32 @@ requirements:
     - pytorch-gpu {{ pytorch }}      # [cuda_compiler_version != "None"]
     - pytorch-cpu {{ pytorch }}      # [cuda_compiler_version == "None"]
   run:
-    - {{ pin_compatible('pytorch-gpu', min_pin='x.x.x', max_pin='x.x') }}                  # [cuda_compiler_version != "None"]
-    - {{ pin_compatible('pytorch-cpu', min_pin='x.x.x', max_pin='x.x') }}                  # [cuda_compiler_version == "None"]
     - python
-    - cloudpickle
-    - future
-    - fvcore
+    - {{ pin_compatible('pytorch-gpu', min_pin='x.x.x', max_pin='x.x') }}                  # [cuda_compiler_version != "None"]
+    - {{ pin_compatible('pytorch-cpu', min_pin='x.x.x', max_pin='x.x') }}                  # [cuda_compiler_version == "None"]    
+    - pillow >=7.1
     - matplotlib-base
-    - pillow
-    - pycocotools
-    - pydot
-    - tensorboard
-    - termcolor >=1.1
+    - pycocotools >=2.0.2
+    - termcolor >=1.1    
+    - cloudpickle
     - tqdm >4.29.0
-    - yacs >=0.1.6
+    - tensorboard
+    - fvcore >=0.1.5,<0.1.6
+    - iopath >=0.1.7,<0.1.10
+    - future    
+    - pydot
+    - omegaconf >=2.1
+    - hydra-core >=1.1
+    - yacs >=0.1.8
+    - torchvision
 
 test:
   imports:
     - detectron2
+    - detectron2.model_zoo
   requires:
-    - black ==19.3b0
-    - flake8
+    - black ==21.4b2
+    - flake8 ==3.8.1
     - flake8-bugbear
     - flake8-comprehensions
     - isort
@@ -68,3 +73,4 @@ extra:
     - oblute
     - rluria14
     - ndmaxar
+    - baszalmstra
