@@ -188,7 +188,7 @@ jobs:
         CONFIG: linux_64_c_compiler_version9cuda_compiler_version11.0cxx_compiler_version9python3.9.____cpythonpytorch1.9._
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
-    maxParallel: 42
+    maxParallel: 38
   timeoutInMinutes: 360
 
   steps:
