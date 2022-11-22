@@ -11,10 +11,13 @@ source:
 
 build:
   number: 1
-  skip: true  # [win or pytorch == "1.10.*" and (cuda_compiler_version == "10.1") or pytorch == "1.9.*" and (cuda_compiler_version == "11.3" or cuda_compiler_version == "10.1") or pytorch == "1.8.*" and cuda_compiler_version == "11.3"]
+  skip: true  # win
     
-  string: torch{{ pytorch | replace('.', '') | replace('*', '') }}_cuda{{ cuda_compiler_version | replace('.', '') }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
-  string: torch{{ pytorch | replace('.', '') | replace('*', '') }}_cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}                                                 # [cuda_compiler_version == "None"]
+  string: py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_{{ torch_proc_type }}  # [cuda_compiler_version == "None"]
+  string: py{{ CONDA_PY }}cuda{{ cuda_compiler_version|replace('.', '') }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_{{ torch_proc_type }}  # [cuda_compiler_version != "None"]
+  run_exports:
+    # ensure matching proc-type
+    - torchvision =*=*_{{ torch_proc_type }}                                              # [cuda_compiler_version == "None"]
 
 requirements:
   build:
@@ -26,12 +29,9 @@ requirements:
   host:
     - python
     - pip
-    - pytorch-gpu {{ pytorch }}      # [cuda_compiler_version != "None"]
-    - pytorch-cpu {{ pytorch }}      # [cuda_compiler_version == "None"]
+    - pytorch ={{ pytorch }}={{ torch_proc_type }}*  # [build_platform != target_platform]
   run:
     - python
-    - {{ pin_compatible('pytorch-gpu', min_pin='x.x.x', max_pin='x.x') }}                  # [cuda_compiler_version != "None"]
-    - {{ pin_compatible('pytorch-cpu', min_pin='x.x.x', max_pin='x.x') }}                  # [cuda_compiler_version == "None"]    
     - pillow >=7.1
     - matplotlib-base
     - pycocotools >=2.0.2
@@ -47,6 +47,22 @@ requirements:
     - hydra-core >=1.1
     - yacs >=0.1.8
     - torchvision
+    # Leaving two dependencies helps rerender correctly
+    # The first gets filled in by the global pinnings
+    # The second gets the processor type
+    - pytorch
+    - pytorch =*={{ torch_proc_type }}*
+  run_constrained:
+    # 2022/02/05 hmaarrfk
+    # While conda packaging seems to allow us to specify
+    # constraints on the same package in different lines
+    # the resulting package doesn't have the ability to
+    # be specified in multiples lines
+    # This makes it tricky to use run_exports
+    # we add the GPU constraint in the run_constrained
+    # to allow us to have "two" constraints on the
+    # running package
+    - pytorch =*={{ torch_proc_type }}*
 
 test:
   imports:
@@ -75,3 +91,4 @@ extra:
     - rluria14
     - ndmaxar
     - baszalmstra
+    - benjaminrwilson
