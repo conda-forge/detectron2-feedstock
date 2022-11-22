@@ -51,11 +51,6 @@ requirements:
     - hydra-core >=1.1
     - yacs >=0.1.8
     - torchvision
-    # Leaving two dependencies helps rerender correctly
-    # The first gets filled in by the global pinnings
-    # The second gets the processor type
-    - pytorch
-    - pytorch =*={{ torch_proc_type }}*
   run_constrained:
     # 2022/02/05 hmaarrfk
     # While conda packaging seems to allow us to specify
