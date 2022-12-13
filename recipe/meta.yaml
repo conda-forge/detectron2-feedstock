@@ -11,6 +11,7 @@ source:
 
 build:
   number: 2
+  skip: true  # [py==310]
   skip: true  # [win or pytorch == "1.10.*" and (cuda_compiler_version == "10.1") or pytorch == "1.9.*" and (cuda_compiler_version == "11.3" or cuda_compiler_version == "10.1") or pytorch == "1.8.*" and cuda_compiler_version == "11.3"]
     
   string: torch{{ pytorch | replace('.', '') | replace('*', '') }}_cuda{{ cuda_compiler_version | replace('.', '') }}_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
