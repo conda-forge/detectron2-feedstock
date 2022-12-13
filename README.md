@@ -416,4 +416,5 @@ Feedstock Maintainers
 * [@ndmaxar](https://github.com/ndmaxar/)
 * [@oblute](https://github.com/oblute/)
 * [@rluria14](https://github.com/rluria14/)
+* [@xhochy](https://github.com/xhochy/)
 
