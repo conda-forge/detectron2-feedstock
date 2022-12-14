@@ -282,6 +282,48 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/detectron2-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.9.____cpythonpytorch1.9._" alt="variant">
                 </a>
               </td>
+            </tr><tr>
+              <td>osx_arm64_python3.8.____cpythonpytorch1.10.</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9714&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/detectron2-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.8.____cpythonpytorch1.10._" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_python3.8.____cpythonpytorch1.8.</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9714&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/detectron2-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.8.____cpythonpytorch1.8._" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_python3.8.____cpythonpytorch1.9.</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9714&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/detectron2-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.8.____cpythonpytorch1.9._" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_python3.9.____cpythonpytorch1.10.</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9714&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/detectron2-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.9.____cpythonpytorch1.10._" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_python3.9.____cpythonpytorch1.8.</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9714&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/detectron2-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.9.____cpythonpytorch1.8._" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_python3.9.____cpythonpytorch1.9.</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9714&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/detectron2-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.9.____cpythonpytorch1.9._" alt="variant">
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
