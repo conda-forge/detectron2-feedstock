@@ -73,7 +73,9 @@ test:
   requires:
     - opencv
   commands:
-    - python -m unittest discover -v -s ./tests
+    # Run a basic set of tests to check for version compatability.
+    # Sadly not all of them run in our limited CI infrastructure.
+    - python -m unittest discover -v -s ./tests/layers
 
 about:
   home: https://github.com/facebookresearch/detectron2
