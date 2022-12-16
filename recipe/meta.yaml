@@ -75,7 +75,8 @@ test:
   commands:
     # Run a basic set of tests to check for version compatability.
     # Sadly not all of them run in our limited CI infrastructure.
-    - python -m unittest discover -v -s ./tests/layers
+    # Skip older pytorch versions which aren't fully compatible with torchvision.
+    - python -m unittest discover -v -s ./tests/layers  # [not (pytorch == "1.8.*" or pytorch == "1.9.*")]
 
 about:
   home: https://github.com/facebookresearch/detectron2
