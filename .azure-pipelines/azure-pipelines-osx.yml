@@ -17,8 +17,8 @@ jobs:
       osx_64_python3.10.____cpythonpytorch1.12._:
         CONFIG: osx_64_python3.10.____cpythonpytorch1.12._
         UPLOAD_PACKAGES: 'True'
-      osx_64_python3.10.____cpythonpytorch1.8._:
-        CONFIG: osx_64_python3.10.____cpythonpytorch1.8._
+      osx_64_python3.10.____cpythonpytorch1.13:
+        CONFIG: osx_64_python3.10.____cpythonpytorch1.13
         UPLOAD_PACKAGES: 'True'
       osx_64_python3.10.____cpythonpytorch1.9._:
         CONFIG: osx_64_python3.10.____cpythonpytorch1.9._
@@ -32,8 +32,8 @@ jobs:
       osx_64_python3.8.____cpythonpytorch1.12._:
         CONFIG: osx_64_python3.8.____cpythonpytorch1.12._
         UPLOAD_PACKAGES: 'True'
-      osx_64_python3.8.____cpythonpytorch1.8._:
-        CONFIG: osx_64_python3.8.____cpythonpytorch1.8._
+      osx_64_python3.8.____cpythonpytorch1.13:
+        CONFIG: osx_64_python3.8.____cpythonpytorch1.13
         UPLOAD_PACKAGES: 'True'
       osx_64_python3.8.____cpythonpytorch1.9._:
         CONFIG: osx_64_python3.8.____cpythonpytorch1.9._
@@ -47,8 +47,8 @@ jobs:
       osx_64_python3.9.____cpythonpytorch1.12._:
         CONFIG: osx_64_python3.9.____cpythonpytorch1.12._
         UPLOAD_PACKAGES: 'True'
-      osx_64_python3.9.____cpythonpytorch1.8._:
-        CONFIG: osx_64_python3.9.____cpythonpytorch1.8._
+      osx_64_python3.9.____cpythonpytorch1.13:
+        CONFIG: osx_64_python3.9.____cpythonpytorch1.13
         UPLOAD_PACKAGES: 'True'
       osx_64_python3.9.____cpythonpytorch1.9._:
         CONFIG: osx_64_python3.9.____cpythonpytorch1.9._
@@ -62,8 +62,8 @@ jobs:
       osx_arm64_python3.10.____cpythonpytorch1.12._:
         CONFIG: osx_arm64_python3.10.____cpythonpytorch1.12._
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_python3.10.____cpythonpytorch1.8._:
-        CONFIG: osx_arm64_python3.10.____cpythonpytorch1.8._
+      osx_arm64_python3.10.____cpythonpytorch1.13:
+        CONFIG: osx_arm64_python3.10.____cpythonpytorch1.13
         UPLOAD_PACKAGES: 'True'
       osx_arm64_python3.10.____cpythonpytorch1.9._:
         CONFIG: osx_arm64_python3.10.____cpythonpytorch1.9._
@@ -77,8 +77,8 @@ jobs:
       osx_arm64_python3.8.____cpythonpytorch1.12._:
         CONFIG: osx_arm64_python3.8.____cpythonpytorch1.12._
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_python3.8.____cpythonpytorch1.8._:
-        CONFIG: osx_arm64_python3.8.____cpythonpytorch1.8._
+      osx_arm64_python3.8.____cpythonpytorch1.13:
+        CONFIG: osx_arm64_python3.8.____cpythonpytorch1.13
         UPLOAD_PACKAGES: 'True'
       osx_arm64_python3.8.____cpythonpytorch1.9._:
         CONFIG: osx_arm64_python3.8.____cpythonpytorch1.9._
@@ -92,8 +92,8 @@ jobs:
       osx_arm64_python3.9.____cpythonpytorch1.12._:
         CONFIG: osx_arm64_python3.9.____cpythonpytorch1.12._
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_python3.9.____cpythonpytorch1.8._:
-        CONFIG: osx_arm64_python3.9.____cpythonpytorch1.8._
+      osx_arm64_python3.9.____cpythonpytorch1.13:
+        CONFIG: osx_arm64_python3.9.____cpythonpytorch1.13
         UPLOAD_PACKAGES: 'True'
       osx_arm64_python3.9.____cpythonpytorch1.9._:
         CONFIG: osx_arm64_python3.9.____cpythonpytorch1.9._
