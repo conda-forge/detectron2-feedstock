@@ -14,7 +14,8 @@ source:
 
 build:
   number: 2
-  skip: true  # [py==310 or win]
+  skip: true  # [win]
+  skip: true  # [py>=310 and pytorch != "1.11.*"]
   string: py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_{{ torch_proc_type }}  # [cuda_compiler_version == "None"]
   string: py{{ CONDA_PY }}cuda{{ cuda_compiler_version|replace('.', '') }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_{{ torch_proc_type }}  # [cuda_compiler_version != "None"]
   run_exports:
@@ -66,12 +67,16 @@ test:
   imports:
     - detectron2
     - detectron2.model_zoo
+  source_files:
+    - tests/**
+    - datasets/**
   requires:
-    - black ==21.4b2
-    - flake8 ==3.8.1
-    - flake8-bugbear
-    - flake8-comprehensions
-    - isort
+    - opencv
+  commands:
+    # Run a basic set of tests to check for version compatability.
+    # Sadly not all of them run in our limited CI infrastructure.
+    # Skip older pytorch versions which aren't fully compatible with torchvision.
+    - python -m unittest discover -v -s ./tests/layers  # [not (pytorch == "1.8.*" or pytorch == "1.9.*")]
 
 about:
   home: https://github.com/facebookresearch/detectron2
