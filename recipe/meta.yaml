@@ -1,15 +1,14 @@
-{% set name = "detectron2" %}
 {% set version = "0.6" %}
 
 # see github.com/conda-forge/conda-forge.github.io/issues/1059 for naming discussion
 {% set torch_proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
 package:
-  name: {{ name|lower }}
+  name: detectron2
   version: {{ version }}
 
 source:
-  url: https://github.com/facebookresearch/{{ name }}/archive/v{{ version }}.tar.gz
+  url: https://github.com/facebookresearch/detectron2/archive/v{{ version }}.tar.gz
   sha256: 9757fed05fa32acc2116ea038185f08409d5e854573e70f41909a358b70d1004
 
 build:
