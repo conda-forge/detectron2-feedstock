@@ -35,7 +35,8 @@ requirements:
   host:
     - python
     - pip
-    - pytorch ={{ pytorch }}={{ torch_proc_type }}*
+    - pytorch
+    - pytorch =*={{ torch_proc_type }}*
   run:
     - python
     - pillow >=7.1
