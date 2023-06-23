@@ -10,6 +10,8 @@ package:
 source:
   url: https://github.com/facebookresearch/detectron2/archive/v{{ version }}.tar.gz
   sha256: 9757fed05fa32acc2116ea038185f08409d5e854573e70f41909a358b70d1004
+  patches:
+    - 0001-Monkeypatch-TORCH_LIB_PATH.patch
 
 build:
   number: 6
