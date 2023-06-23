@@ -10,9 +10,11 @@ package:
 source:
   url: https://github.com/facebookresearch/detectron2/archive/v{{ version }}.tar.gz
   sha256: 9757fed05fa32acc2116ea038185f08409d5e854573e70f41909a358b70d1004
+  patches:
+    - 0001-Monkeypatch-TORCH_LIB_PATH.patch
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win]
   # as of pytorch 1.13, conda-forge only builds for CUDA 11.2+, see
   # https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/3491

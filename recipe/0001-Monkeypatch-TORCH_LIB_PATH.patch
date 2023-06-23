@@ -1,0 +1,28 @@
+From 46abe2bc5164d3fedebcb1fa8612b666d3a69f7f Mon Sep 17 00:00:00 2001
+From: Uwe Korn <uwelk@xhochy.com>
+Date: Fri, 23 Jun 2023 05:19:16 +0000
+Subject: [PATCH] Monkeypatch TORCH_LIB_PATH
+
+---
+ setup.py | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/setup.py b/setup.py
+index 173d012..fe9a07e 100644
+--- a/setup.py
++++ b/setup.py
+@@ -10,6 +10,11 @@ from typing import List
+ import torch
+ from torch.utils.cpp_extension import CUDA_HOME, CppExtension, CUDAExtension
+ 
++import site
++import torch.utils.cpp_extension
++
++torch.utils.cpp_extension.TORCH_LIB_PATH = site.getsitepackages()[0] + '/torch/lib'
++
+ torch_ver = [int(x) for x in torch.__version__.split(".")[:2]]
+ assert torch_ver >= [1, 8], "Requires PyTorch >= 1.8"
+ 
+-- 
+2.25.1
+
