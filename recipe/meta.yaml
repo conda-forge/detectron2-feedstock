@@ -60,6 +60,7 @@ requirements:
     # additional run constraint to the one from the (version-only) run_export;
     # constraining the CPU builds to CPU pytorch isn't 100% necessary, but cleaner
     - pytorch =*={{ torch_proc_type }}*
+    - torchvision =*=cuda{{ cuda_compiler_version | replace('.', '') }}*  # [cuda_compiler_version != "None"]
 
 test:
   imports:
