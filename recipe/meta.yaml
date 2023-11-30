@@ -12,10 +12,12 @@ source:
   sha256: 9757fed05fa32acc2116ea038185f08409d5e854573e70f41909a358b70d1004
   patches:
     - 0001-Monkeypatch-TORCH_LIB_PATH.patch
+    - ff53992b1985b63bd3262b5a36167098e3dada02.patch
 
 build:
-  number: 6
+  number: 7
   skip: true  # [win]
+  skip: true  # [aarch64 and cuda_compiler_version != "None"]
   # as of pytorch 1.13, conda-forge only builds for CUDA 11.2+, see
   # https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/3491
   skip: true  # [cuda_compiler_version in ("10.2", "11.0", "11.1")]
@@ -59,6 +61,7 @@ requirements:
     # additional run constraint to the one from the (version-only) run_export;
     # constraining the CPU builds to CPU pytorch isn't 100% necessary, but cleaner
     - pytorch =*={{ torch_proc_type }}*
+    - torchvision =*=cuda{{ cuda_compiler_version | replace('.', '') }}*  # [cuda_compiler_version != "None"]
 
 test:
   imports:

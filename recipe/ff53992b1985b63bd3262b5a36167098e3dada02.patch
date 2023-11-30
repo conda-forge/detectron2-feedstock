@@ -1,0 +1,41 @@
+From ff53992b1985b63bd3262b5a36167098e3dada02 Mon Sep 17 00:00:00 2001
+From: Daniel DeTone <ddetone@meta.com>
+Date: Thu, 6 Jul 2023 15:21:38 -0700
+Subject: [PATCH] fix PIL.LINEAR warning
+
+Summary:
+Fix these warnings:
+
+```
+/data/sandcastle/boxes/fbsource/buck-out/v2/gen/fbcode/f151e79da24bacb4/surreal/efm/__manual_train__/manual_train#link-tree/detectron2/data/transforms/transform.py:46: DeprecationWarning: LINEAR is deprecated and will be removed in Pillow 10 (2023-07-01). Use BILINEAR or Resampling.BILINEAR instead.
+  def __init__(self, src_rect, output_size, interp=Image.LINEAR, fill=0):
+/data/sandcastle/boxes/fbsource/buck-out/v2/gen/fbcode/f151e79da24bacb4/surreal/efm/__manual_train__/manual_train#link-tree/detectron2/data/transforms/transform.py:46: DeprecationWarning: LINEAR is deprecated and will be removed in Pillow 10 (2023-07-01). Use BILINEAR or Resampling.BILINEAR instead.
+  def __init__(self, src_rect, output_size, interp=Image.LINEAR, fill=0):
+/data/sandcastle/boxes/fbsource/buck-out/v2/gen/fbcode/f151e79da24bacb4/surreal/efm/__manual_train__/manual_train#link-tree/detectron2/data/transforms/transform.py:46: DeprecationWarning: LINEAR is deprecated and will be removed in Pillow 10 (2023-07-01). Use BILINEAR or Resampling.BILINEAR instead.
+  def __init__(self, src_rect, output_size, interp=Image.LINEAR, fill=0):
+/data/sandcastle/boxes/fbsource/buck-out/v2/gen/fbcode/f151e79da24bacb4/surreal/efm/__manual_train__/manual_train#link-tree/detectron2/data/transforms/transform.py:46: DeprecationWarning: LINEAR is deprecated and will be removed in Pillow 10 (2023-07-01). Use BILINEAR or Resampling.BILINEAR instead.
+  def __init__(self, src_rect, output_size, interp=Image.LINEAR, fill=0):
+```
+
+Reviewed By: hlzz
+
+Differential Revision: D47212305
+
+fbshipit-source-id: 8944e8fdbf9e3669df8d5d8350073f2af7108af1
+---
+ detectron2/data/transforms/transform.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/detectron2/data/transforms/transform.py b/detectron2/data/transforms/transform.py
+index de44b991d7..46769a2569 100644
+--- a/detectron2/data/transforms/transform.py
++++ b/detectron2/data/transforms/transform.py
+@@ -43,7 +43,7 @@ class ExtentTransform(Transform):
+     See: https://pillow.readthedocs.io/en/latest/PIL.html#PIL.ImageTransform.ExtentTransform
+     """
+ 
+-    def __init__(self, src_rect, output_size, interp=Image.LINEAR, fill=0):
++    def __init__(self, src_rect, output_size, interp=Image.BILINEAR, fill=0):
+         """
+         Args:
+             src_rect (x0, y0, x1, y1): src coordinates
