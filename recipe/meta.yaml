@@ -40,6 +40,10 @@ requirements:
     - pip
     - pytorch
     - pytorch =*={{ torch_proc_type }}*
+    - cuda-version {{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
+    - libcublas-dev     # [(cuda_compiler_version or "").startswith("12")]
+    - libcusolver-dev   # [(cuda_compiler_version or "").startswith("12")]
+    - libcusparse-dev   # [(cuda_compiler_version or "").startswith("12")]
   run:
     - python
     - pillow >=7.1
