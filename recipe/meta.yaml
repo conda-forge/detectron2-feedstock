@@ -15,12 +15,9 @@ source:
     - ff53992b1985b63bd3262b5a36167098e3dada02.patch
 
 build:
-  number: 8
+  number: 9
   skip: true  # [win]
   skip: true  # [aarch64 and cuda_compiler_version != "None"]
-  # as of pytorch 1.13, conda-forge only builds for CUDA 11.2+, see
-  # https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/3491
-  skip: true  # [cuda_compiler_version in ("10.2", "11.0", "11.1")]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
   string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}                                                # [cuda_compiler_version == "None"]
   run_exports:
@@ -33,6 +30,7 @@ requirements:
     - cross-python_{{ target_platform }}             # [build_platform != target_platform]
     - pytorch ={{ pytorch }}={{ torch_proc_type }}*  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}      # [cuda_compiler_version != "None"]
   host:
@@ -80,7 +78,7 @@ test:
     # Run a basic set of tests to check for version compatability.
     # Sadly not all of them run in our limited CI infrastructure.
     # Skip older pytorch versions which aren't fully compatible with torchvision.
-    - python -m unittest discover -v -s ./tests/layers  # [not (pytorch == "1.8.*" or pytorch == "1.9.*")]
+    - python -m unittest discover -v -s ./tests/layers
 
 about:
   home: https://github.com/facebookresearch/detectron2
