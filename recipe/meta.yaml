@@ -15,7 +15,7 @@ source:
     - ff53992b1985b63bd3262b5a36167098e3dada02.patch
 
 build:
-  number: 9
+  number: 10
   skip: true  # [win]
   skip: true  # [aarch64 and cuda_compiler_version != "None"]
   string: cuda{{ cuda_compiler_version | replace('.', '') }}py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [cuda_compiler_version != "None"]
