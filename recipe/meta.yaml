@@ -15,7 +15,7 @@ source:
     - ff53992b1985b63bd3262b5a36167098e3dada02.patch
 
 build:
-  number: 12
+  number: 13
   skip: true  # [win]
   skip: true  # [aarch64 and cuda_compiler_version != "None"]
   # pytorch in conda-forge does not support CUDA 11.8 as of v2.5
