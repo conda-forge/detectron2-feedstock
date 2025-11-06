@@ -1,3 +1,12 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+if [[ "${target_platform}" != "${build_platform}" ]]; then
+  # Remove duplicate headers
+  rm -r ${BUILD_PREFIX}/venv/lib/python${PY_VER}/site-packages/torch/include
+fi
+
 if [[ "$cuda_compiler_version" == "None" ]]; then
   export FORCE_CUDA=0
 else
