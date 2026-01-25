@@ -22,13 +22,13 @@ build:
   string: cpu_py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}                                                # [cuda_compiler_version == "None"]
   run_exports:
     # ensure matching proc-type
-    - torchvision =*={{ torch_proc_type }}*
+    - torchvision * {{ torch_proc_type }}*
 
 requirements:
   build:
     - python                                         # [build_platform != target_platform]
     - cross-python_{{ target_platform }}             # [build_platform != target_platform]
-    - pytorch ={{ pytorch }}={{ torch_proc_type }}*  # [build_platform != target_platform]
+    - pytorch {{ pytorch }} {{ torch_proc_type }}*   # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
@@ -37,7 +37,7 @@ requirements:
     - python
     - pip
     - pytorch
-    - pytorch =*={{ torch_proc_type }}*
+    - pytorch * {{ torch_proc_type }}*
     - cuda-version {{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
     - libcublas-dev                             # [cuda_compiler_version != "None"]
     - libcusolver-dev                           # [cuda_compiler_version != "None"]
@@ -62,8 +62,8 @@ requirements:
   run_constrained:
     # additional run constraint to the one from the (version-only) run_export;
     # constraining the CPU builds to CPU pytorch isn't 100% necessary, but cleaner
-    - pytorch =*={{ torch_proc_type }}*
-    - torchvision =*=cuda{{ cuda_compiler_version | replace('.', '') }}*  # [cuda_compiler_version != "None"]
+    - pytorch * {{ torch_proc_type }}*
+    - torchvision * cuda{{ cuda_compiler_version | replace('.', '') }}*  # [cuda_compiler_version != "None"]
 
 test:
   imports:
