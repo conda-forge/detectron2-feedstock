@@ -36,6 +36,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - pytorch
     - pytorch * {{ torch_proc_type }}*
     - cuda-version {{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
