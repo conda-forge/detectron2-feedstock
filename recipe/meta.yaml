@@ -5,7 +5,7 @@
 
 package:
   name: detectron2
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://github.com/facebookresearch/detectron2/archive/v{{ version }}.tar.gz
