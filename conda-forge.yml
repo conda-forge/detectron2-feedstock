@@ -9,7 +9,4 @@ github:
   tooling_branch_name: main
 test: native
 workflow_settings:
-  free_disk_space:
-    - apt
-    - cache
-    - docker
+  free_disk_space: max
